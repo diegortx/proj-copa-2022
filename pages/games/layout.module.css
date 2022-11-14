@@ -1,0 +1,22 @@
+
+.cardGame{
+    width: 44%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
+    background-color: rgb(158, 156, 253);
+    font-weight: bold;
+}
+.date{
+    font-weight: 400;
+    font-size: 12px;
+    padding: 10px;
+    font-style: italic;
+}
+
+@media (max-width: 576px) { 
+    .cardGame{
+        width: 90%;
+    }
+ }
