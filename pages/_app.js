@@ -2,6 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { global } from "../styles/global.css";
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <>

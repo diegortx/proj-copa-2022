@@ -9,8 +9,7 @@ export async function getServerSideProps() {
     return {
         props: { data },
     }
-  }
-
+}
 
 function Games({data}){
 

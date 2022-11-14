@@ -8,6 +8,9 @@
     background-color: var(--dark-light);
     font-weight: bold;
 }
+.cardGame:hover{
+    cursor: pointer;
+}
 .date{
     font-weight: 400;
     font-size: 12px;
