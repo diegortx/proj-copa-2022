@@ -2,14 +2,6 @@ import styles from './layout.module.css'
 import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
 import {Classificacao} from '../../src/utils/config/cfg';
 
-export async function getStaticProps() {
- 
-    const data = await Classificacao();
-    return {
-        props: { data },
-    }
-}
-
 function Standings({data}){
 
     const standings = data.data;
@@ -61,7 +53,13 @@ function Standings({data}){
 
 }
 
-
+export async function getStaticProps() {
+ 
+    const data = await Classificacao();
+    return {
+        props: { data },
+    }
+}
   
 
 export default Standings
