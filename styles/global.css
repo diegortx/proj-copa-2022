@@ -1,3 +1,10 @@
+:root {
+  --dark:#181A1B;
+  --dark-light:#74757492;
+  --white : white;
+  --primary: #5444b8;
+}
+
 html,
 body {
   padding: 0;
@@ -6,6 +13,8 @@ body {
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 h3{
@@ -17,10 +26,11 @@ h3{
 }
 
 a {
-  color: #5444b8;
+  color: var(--primary);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
+
