@@ -3,6 +3,13 @@ import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
 import Router from 'next/router'
 import {Selecoes} from '../../src/utils/config/cfg' 
 
+export async function getStaticProps() {   
+    const data = await Selecoes();
+    return {
+        props: { data },
+    }
+}
+
 function Teams({data}){
 
     const teams = data.data;
@@ -26,14 +33,5 @@ function Teams({data}){
     )
 
 }
-
-export async function getServerSideProps() {
-   
-    const data = await Selecoes();
-    return {
-        props: { data },
-    }
-}
-  
 
 export default Teams

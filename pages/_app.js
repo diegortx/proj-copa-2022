@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Copa do Mundo 2022 🏆⚽</title>
       </Head>
 
       <Script

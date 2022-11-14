@@ -3,6 +3,15 @@ import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
 import Router from 'next/router';
 import { Jogos } from '../../src/utils/config/cfg';
 
+
+export async function getServerSideProps() {
+    const data = await Jogos();
+    return {
+        props: { data },
+    }
+  }
+
+
 function Games({data}){
 
     const games = data.data;
@@ -39,14 +48,5 @@ function Games({data}){
     )
 
 }
-
-export async function getServerSideProps() {
-
-    const data = await Jogos();
-    return {
-        props: { data },
-    }
-}
-  
 
 export default Games
