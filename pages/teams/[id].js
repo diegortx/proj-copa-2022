@@ -1,7 +1,7 @@
 import styles from './layout.module.css';
 import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
 import { Selecoes } from '../../src/utils/config/cfg';
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { listPlayers } from '../../src/utils/config/players'
 
 
@@ -30,8 +30,6 @@ export async function getStaticProps(context) {
 
     //Selecionando o perfil da selecao por id
     const data = await Selecoes(context.params.id);
-
-    const selecao = data;
     
     return {
         props: { 
@@ -43,6 +41,17 @@ export async function getStaticProps(context) {
 
 
 function Teams({data,players}){
+
+    //Para controlar Load
+    // const router = useRouter();
+
+    // if(router.isFallback){
+    //     return (
+    //     <>
+    //     </>
+    //     );
+    // }
+
     const teams = data.data;
     return (      
         <>
