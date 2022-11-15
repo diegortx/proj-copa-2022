@@ -11,9 +11,38 @@ export async function getServerSideProps() {
     }
 }
 
+function compare(a,b) {
+    if (a.local_date < b.local_date)
+       return -1;
+    if (a.local_date > b.local_date)
+      return 1;
+    return 0;
+  }
+
+function convertDate(date){
+    let data = new Date(date);
+
+    data.setHours(data.getHours() - 6);
+    data.setMonth(data.getMonth() );
+
+    data = 
+        data.getDate()+'/'
+        +(data.getMonth() + 1)+'/'
+        +data.getFullYear()+' '
+        +data.getHours()+':'
+        +(data.getMinutes() == 0 ? '00' : data.getMinutes())+':'
+        +(data.getSeconds() == 0 ? '00' : data.getSeconds());
+
+    console.log(data);
+
+    return data;
+
+}
+
 function Games({data}){
 
     const games = data.data;
+    games.sort(compare);
 
     return (      
         <>
@@ -22,13 +51,14 @@ function Games({data}){
         <div className='row text-center'>
         {
             games.map((game,index)=>( 
-                <div className={`${styles.cardGame}`} key={index} onClick={() =>  Router.push(`/games/${game.id}`)}>  
+                <div className={`${game.home_team_en == 'Brazil'? styles.cardGameBrazil : styles.cardGame}`} key={index} onClick={() =>  Router.push(`/games/${game.id}`)}>  
                     <div className='text-center'>
                         <div className={`${styles.teamLine}`}>
                             <img className='m-2' src={game.home_flag} width='15px' height='12px'></img>
                             {game.home_team_en}
+                            
                         </div>
-                        <strong>X</strong>
+                        <strong> ⚽ {game.home_score} X {game.away_score}</strong>
                         <div className=''>
                             <img  className='m-2' src={game.away_flag} width='15px' height='12px'></img>
                             <span>{game.away_team_en}</span> 
@@ -36,7 +66,7 @@ function Games({data}){
                     </div>              
                   
                     <div className={`text-center ${styles.date}`}>
-                        Data e Hora local :  {game.local_date} 
+                        Data e Hora de Brasilia :   <strong>{convertDate(game.local_date)}</strong>  - {game.matchday}º Dia
                     </div>
                 </div>               
                 )

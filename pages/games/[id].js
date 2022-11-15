@@ -13,7 +13,7 @@ function Game({data}){
         <div className='row'>
         {
             game.map((game,index)=>( 
-                <div className={`${styles.cardGame}`} key={index} onClick={() =>  Router.push(`/games`)}>  
+                <div className={`${game.home_team_en == 'Brazil'? styles.cardGameBrazil : styles.cardGame}`} key={index} onClick={() =>  Router.push(`/games`)}>  
                 <div className='text-center'>
                     <div className={`${styles.teamLine}`}>
                         <img className='m-2' src={game.home_flag} width='15px' height='12px'></img>

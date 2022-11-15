@@ -10,9 +10,19 @@ export async function getStaticProps() {
     }
 }
 
+function compare(a,b) {
+    if (a.name_en < b.name_en)
+       return -1;
+    if (a.name_en > b.name_en)
+      return 1;
+    return 0;
+  }
+
 function Teams({data}){
 
     const teams = data.data;
+    teams.sort(compare);
+
     return (      
         <>
         <MenuTopo/>

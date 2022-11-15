@@ -8,12 +8,22 @@
     background-color: var(--dark-light);
     font-weight: bold;
 }
-.cardGame:hover{
+
+.cardGameBrazil{
+    width: 44%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
+    background-image: linear-gradient(to right,#10892E,#19328E, #EED901);
+    font-weight: bold;
+}
+.cardGame:hover, .cardGameBrazil:hover{
     cursor: pointer;
 }
 .date{
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px;
     font-style: italic;
 }
