@@ -8,16 +8,18 @@ import { listPlayers } from '../../src/utils/config/players'
 export async function getStaticPaths() {
 
     //Pegando todas selecoes
-    const selecoes = await Selecoes();
+    // const selecoes = await Selecoes();
 
     //Criando o path a partir de todos id das slelecoes
-    const paths = selecoes.data.map((selecao) =>{
-        return { params : { id : `${selecao.id}`}}
-    });
+    // const paths = selecoes.data.map((selecao) =>{
+    //     return { params : { id : `${selecao.id}`}}
+    // });
 
     return {
-      paths: paths,
-      fallback: false, // can also be true or 'blocking'
+      paths: [
+        {params : { id : '25'}}
+        ],
+      fallback: 'blocking', // can also be true or 'blocking'
     }
   }
 
@@ -28,6 +30,8 @@ export async function getStaticProps(context) {
 
     //Selecionando o perfil da selecao por id
     const data = await Selecoes(context.params.id);
+
+    const selecao = data;
     
     return {
         props: { 
