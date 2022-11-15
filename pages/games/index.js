@@ -44,7 +44,7 @@ function Games({data}){
 
     return (      
         <>
-        <MenuTopo/>
+        <MenuTopo selected="jogos"/>
         <h3 className='text-center'>Jogos 🏆⚽</h3>
         <div className='row text-center'>
         {

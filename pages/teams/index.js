@@ -25,7 +25,7 @@ function Teams({data}){
 
     return (      
         <>
-        <MenuTopo/>
+        <MenuTopo selected="selecoes"/>
         <h3 className='text-center'>Seleções da Copa 2022 🏆⚽</h3>
         <div className='row'>
         {

@@ -1,4 +1,5 @@
 .body{
+    margin-top: 20px;
     display: flex;
     height: 50px;
     justify-content: space-evenly;    
@@ -6,8 +7,35 @@
     text-decoration: none;
 }
 
-.body a{
+.menu a{
     font-weight: bold;
     text-decoration: none;
-    color: blueviolet;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 1px;
+    border-color: var(--primary);
+
+}
+.menuSelecionado a{
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid 1px;
+    border-color: var(--primary);
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+@media (max-width: 576px) { 
+    .body{
+        font-size: 14px;
+    }
+    
+    .menu a{
+        padding: 5px;    
+    }
+    .menuSelecionado a{
+        padding: 5px;      
+    }
 }

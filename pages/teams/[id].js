@@ -9,7 +9,7 @@ function Teams({data,players}){
     const teams = data.data;
     return (      
         <>
-        <MenuTopo/>
+        <MenuTopo selected="home"/>
         <h3 className='text-center'>Seleção ⚽</h3>
         <div className='row'>
             {

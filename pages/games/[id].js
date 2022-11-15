@@ -8,7 +8,7 @@ function Game({data}){
     const game = data.data;
     return (      
         <>
-        <MenuTopo/>
+        <MenuTopo selected="jogos"/>
         <h3 className='text-center'>Jogo ⚽</h3>
         <div className='row'>
         {

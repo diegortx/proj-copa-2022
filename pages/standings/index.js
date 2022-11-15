@@ -8,7 +8,7 @@ function Standings({data}){
 
     return (      
         <>
-        <MenuTopo/>
+        <MenuTopo selected="classificacao"/>
         <h3 className='text-center'>Grupo das seleções 🏆⚽</h3>
         <div className='row'>
         {

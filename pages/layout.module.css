@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+.hbody{
+    height: 88vh;
+    padding-top: 25%;
+}
+.line{
+    border-right: 2px solid rgb(255, 255, 255, 0.75);
+   color: var(--withe); 
+   font-family: 'Special Elite', cursive;
+   font-size: 2em;
+   margin: 0 auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+}
+
+.line2{
+    border-right: 2px solid rgb(255, 255, 255, 0.75);
+   color: var(--withe); 
+   font-family: 'Special Elite', cursive;
+   font-size: 2em;
+   margin: 0 auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+}
+
+.typingAnimation {
+    animation: blinkCursos 500ms steps(40) infinite normal, typing 6s steps(40) infinite normal both;
+}
+.typingAnimation2 {
+    animation: blinkCursos 500ms steps(40) infinite normal, typing2 4s steps(40) 6s normal both;
+}
+
+@keyframes typing2{
+    from{
+        width: 0;
+    }
+    to{
+        width: 21em;
+    }
+}
+
+@keyframes typing{
+    from{
+        width: 0;
+    }
+    to{
+        width: 18em;
+    }
+}
+
+@keyframes blinkCursos{
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to{
+        border-right-color: transparent;
+    }
+}
+
+@media (max-width: 576px) { 
+    .hbody{
+        
+    }
+    .line{      
+       font-size: 1em;      
+    }
+    
+    .line2{
+       font-size: 18px;      
+    }
+}
