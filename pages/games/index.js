@@ -1,6 +1,5 @@
 import styles from './layout.module.css'
 import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
-import Router from 'next/router';
 import { Jogos } from '../../src/utils/config/cfg';
 
 
@@ -38,9 +37,9 @@ function convertDate(date){
 }
 
 function Games({data}){
-
     const games = data.data;
     games.sort(compare);
+
 
     return (      
         <>
@@ -62,15 +61,15 @@ function Games({data}){
                             <span>{game.away_team_en}</span> 
                         </div>                            
                     </div>              
-                  
+                    
                     <div className={`text-center ${styles.date}`}>
                         Data e Hora de Brasilia :   <strong>{convertDate(game.local_date)}</strong>  - {game.matchday}º Dia
                     </div>
                 </div>               
                 )
-            )
-        }
-        </div>
+            )          
+        }   
+      </div>
         </>   
     )
 

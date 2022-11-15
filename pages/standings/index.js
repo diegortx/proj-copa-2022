@@ -23,7 +23,12 @@ function Standings({data}){
                                     <th>#</th>
                                     <th>Bandeira</th>
                                     <th>Seleção</th>  
-                                    <th>Pontos</th>  
+                                    <th>Pontos</th> 
+                                    <th>Jogos</th> 
+                                    <th>Win</th> 
+                                    <th>Derrotas</th>
+                                    <th>Gol</th>
+                                    <th>Gol Contra</th>
                                 </tr>                            
                             </thead>
 
@@ -33,9 +38,14 @@ function Standings({data}){
                             <tbody key={index}>
                                 <tr>
                                     <th>#</th>
-                                    <th><img src={team.flag} width='50px' height='30px'></img></th>
+                                    <th><img src={team.flag} className={`${styles.image}`}></img></th>
                                     <th>{team.name_en}</th>
                                     <th>{team.pts}</th>
+                                    <th>{team.mp}</th>
+                                    <th>{team.w}</th>
+                                    <th>{team.l}</th>
+                                    <th>{team.gf}</th>
+                                    <th>{team.ga}</th>
                                 </tr>
                             </tbody>
                        
