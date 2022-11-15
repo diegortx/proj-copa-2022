@@ -40,7 +40,6 @@ function Games({data}){
     const games = data.data;
     games.sort(compare);
 
-
     return (      
         <>
         <MenuTopo selected="jogos"/>

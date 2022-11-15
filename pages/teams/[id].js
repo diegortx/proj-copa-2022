@@ -6,48 +6,27 @@ import { listPlayers } from '../../src/utils/config/players'
 
 
 export async function getStaticPaths() {
+
+    //Pegando todas selecoes
+    const selecoes = await Selecoes();
+
+    //Criando o path a partir de todos id das slelecoes
+    const paths = selecoes.data.map((selecao) =>{
+        return { params : { id : `${selecao.id}`}}
+    });
+
     return {
-      paths: [
-        { params: { id:'16'}},
-        { params: { id:'9'}},
-        { params: { id:'23'}},
-        { params: { id:'25'}},
-        { params: { id:'32'}},
-        { params: { id:'24'}},
-        { params: { id:'22'}},
-        { params: { id:'18'}},
-        { params: { id:'11'}},
-        { params: { id:'2'}},
-        { params: { id:'5'}},
-        { params: { id:'15'}},
-        { params: { id:'19'}},
-        { params: { id:'28'}},
-        { params: { id:'6'}},
-        { params: { id:'20'}},
-        { params: { id:'13'}},
-        { params: { id:'17'}},
-        { params: { id:'4'}},
-        { params: { id:'14'}},
-        { params: { id:'27'}},
-        { params: { id:'1'}},
-        { params: { id:'10'}},
-        { params: { id:'3'}},
-        { params: { id:'26'}},
-        { params: { id:'30'}},
-        { params: { id:'21'}},
-        { params: { id:'31'}},
-        { params: { id:'12'}},
-        { params: { id:'7'}},
-        { params: { id:'29'}},
-        { params: { id:'8'}}, 
-    ],
+      paths: paths,
       fallback: false, // can also be true or 'blocking'
     }
   }
 
 export async function getStaticProps(context) {
 
+    //Pegando os jogadores de cada selecao por Id
     const players = await listPlayers(context.params.id);
+
+    //Selecionando o perfil da selecao por id
     const data = await Selecoes(context.params.id);
     
     return {

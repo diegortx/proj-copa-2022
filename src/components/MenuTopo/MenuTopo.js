@@ -2,7 +2,6 @@ import Link from "next/link"
 import styles from "./layout.module.css"
 
 export default function MenuTopo({selected}){
-    console.log(selected)
     return (
         <div className={`${styles.body} mb-5`}>
             <div className={`${selected == 'home'? styles.menuSelecionado : styles.menu}`}>
