@@ -32,7 +32,7 @@ function Teams({data}){
             teams.map((team,index)=>( 
                 <div className={`col text-center p-2 ${styles.cardBody}`} key={index} onClick={() =>  Router.push(`/teams/${team.id}`)}>
                     <img className={`${styles.images}`} src={team.flag}></img>
-                    <p className='mt-3'><strong>{team.name_en}</strong> -  {team.fifa_code}</p>
+                    <p className='mt-3'><strong>{team.name_en} </strong> -  {team.fifa_code}</p>
                     <p>Grupo: {team.groups}</p>                        
                 </div>
                 )
