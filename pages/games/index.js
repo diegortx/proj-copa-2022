@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { Jogos } from '../../src/utils/config/cfg';
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const data = await Jogos();
     return {
         props: { data },
@@ -49,7 +49,7 @@ function Games({data}){
         <div className='row text-center'>
         {
             games.map((game,index)=>( 
-                <div className={`${game.home_team_en == 'Brazil'? styles.cardGameBrazil : styles.cardGame}`} key={index} onClick={() =>  Router.push(`/games/${game.id}`)}>  
+                <div className={`${game.home_team_en == 'Brazil'? styles.cardGameBrazil : styles.cardGame}`} key={index} >  
                     <div className='text-center'>
                         <div className={`${styles.teamLine}`}>
                             <img className='m-2' src={game.home_flag} width='15px' height='12px'></img>
