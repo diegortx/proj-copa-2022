@@ -23,13 +23,13 @@
 }
 .date{
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     padding: 10px;
     font-style: italic;
 }
 
 @media (max-width: 576px) { 
-    .cardGame{
+    .cardGame, .cardGameBrazil{
         width: 90%;
     }
  }

@@ -26,7 +26,7 @@ function Teams({data}){
     return (      
         <>
         <MenuTopo/>
-        <h3 className='text-center'>Seleções que estão na Copa 2022 🏆⚽</h3>
+        <h3 className='text-center'>Seleções da Copa 2022 🏆⚽</h3>
         <div className='row'>
         {
             teams.map((team,index)=>( 

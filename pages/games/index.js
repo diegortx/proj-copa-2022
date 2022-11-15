@@ -33,8 +33,6 @@ function convertDate(date){
         +(data.getMinutes() == 0 ? '00' : data.getMinutes())+':'
         +(data.getSeconds() == 0 ? '00' : data.getSeconds());
 
-    console.log(data);
-
     return data;
 
 }
