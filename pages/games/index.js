@@ -7,6 +7,8 @@ export async function getStaticProps() {
     const data = await Jogos();
     return {
         props: { data },
+        //Tempo para rodar a consulta statica em segundos
+        // revalidate: 10,
     }
 }
 
@@ -36,38 +38,90 @@ function convertDate(date){
 
 }
 
+function orderPorDia(data) {
+    var dias = [];
+
+    data.forEach(function(val,index) {
+        var dia = val.matchday;
+        if (dia in dias) {
+            dias[dia].push(val);
+        } else {
+            dias[dia] = new Array(val);
+        }
+    });
+
+    return dias;
+}
+
+
+
 function Games({data}){
     const games = data.data;
     games.sort(compare);
+
+    
+
+    const jogosPorDia = orderPorDia(games);
+
+
+
 
     return (      
         <>
         <MenuTopo selected="jogos"/>
         <h3 className='text-center'>Jogos 🏆⚽</h3>
         <div className='row text-center'>
+        
         {
-            games.map((game,index)=>( 
-                <div className={`${game.home_team_en == 'Brazil'? styles.cardGameBrazil : styles.cardGame}`} key={index} >  
-                    <div className='text-center'>
-                        <div className={`${styles.teamLine}`}>
-                            <img className='m-2' src={game.home_flag} width='15px' height='12px'></img>
-                            {game.home_team_en}
-                            
-                        </div>
-                        <strong> ⚽ {game.home_score} X {game.away_score}</strong>
-                        <div className=''>
-                            <img  className='m-2' src={game.away_flag} width='15px' height='12px'></img>
-                            <span>{game.away_team_en}</span> 
-                        </div>                            
-                    </div>              
-                    
-                    <div className={`text-center ${styles.date}`}>
-                        Data e Hora de Brasilia :   <strong>{convertDate(game.local_date)}</strong>  - {game.matchday}º Dia
-                    </div>
-                </div>               
-                )
-            )          
-        }   
+            jogosPorDia.map((dia, index) => {
+            return (
+            <div className={`${styles.cardGame}`} key={index}>   
+            <div className={`${styles.cardTop}`}>
+                {index}º Dia
+                <hr/>
+            </div>
+                {
+                    dia.map((jogo, index) => {
+                        return (
+                            <div className='row w-100 ' key={index}>
+                                <div className='col row w-40 '>
+                                    <div className='col w-25'>
+                                        <img src={jogo.home_flag} width='50px' height='30px'/>
+                                    </div>
+                                    <div className='col w-25 '>
+                                        {jogo.home_team_en}    
+                                    </div>
+
+                                </div>
+                                <div className='col row w-10 text-center'>
+                                    <div className='col'> 
+                                        <div className=''>
+                                            {jogo.home_score} x {jogo.away_score}
+                                        </div>
+                                        <div className={`${styles.dataJogo}`}>
+                                            {convertDate(jogo.local_date)} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='col row w-40 '>
+                                    <div className='col w-25'>
+                                        {jogo.away_team_en}
+                                    </div>
+                                    <div className='col w-25 '>
+                                        <img src={jogo.away_flag} width='50px' height='30px'/>
+                                    </div>
+                                </div> 
+                                <hr/>
+                            </div>
+                        )
+                    })
+                }
+            </div> 
+            );            
+
+        })
+      }
+
       </div>
         </>   
     )

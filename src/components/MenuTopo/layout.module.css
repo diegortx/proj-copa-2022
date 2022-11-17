@@ -16,6 +16,10 @@
     border-color: var(--primary);
 
 }
+.menu a:hover{
+    color: white;
+}
+
 .menuSelecionado a{
     font-weight: bold;
     text-decoration: none;

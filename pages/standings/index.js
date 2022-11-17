@@ -16,12 +16,11 @@ function Standings({data}){
                <div className='col mt-3' key={index}>
                
                 
-                <table key={index} class={`table table-hover caption-top text-center ${styles.tableBody}`}>
-                    <caption><div className='text-center'> <strong>Grupo - {standing.group}</strong></div></caption>
+                <table key={index} class={`table table-hover text-center ${styles.tableBody}`}>
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Bandeira</th>
+                                    <th>G-{standing.group}</th>
                                     <th>Seleção</th>  
                                     <th>Pontos</th> 
                                     <th>Jogos</th> 
@@ -37,7 +36,7 @@ function Standings({data}){
                        
                             <tbody key={index}>
                                 <tr>
-                                    <th>#</th>
+                                    <th>{index+1}</th>
                                     <th><img src={team.flag} className={`${styles.image}`}></img></th>
                                     <th>{team.name_en}</th>
                                     <th>{team.pts}</th>

@@ -5,8 +5,15 @@
     border-radius: 10px;
     margin: 20px;
     box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
-    background-color: var(--dark-light);
-    color: var(--white);
+    background-color:  var(--white);
+    color: var(--dark);
+    border: none;
+}
+
+.tableBody thead{
+    background-image: linear-gradient(to left,#490d20,#a04655,#490d20);
+    color: var(--white);    
+    
 }
 
 .image{
@@ -20,6 +27,8 @@
         font-size: 12px;
         overflow:scroll;
         overflow-x:hidden;
+    }
+    .tableBody thead{
     }
 
     .image{

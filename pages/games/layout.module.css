@@ -1,12 +1,28 @@
 
 .cardGame{
-    width: 44%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     margin: 20px;
     box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
-    background-color: var(--dark-light);
+    background-color: rgb(200, 201, 194);
     font-weight: bold;
+    color: var(--dark);  
+}
+
+.dataJogo{
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(70, 75, 73);
+}
+.cardGame hr{
+    color: var(--dark);  
+}
+.cardTop{
+    border-radius: 10px;
+    border: none;
+    background-image: linear-gradient(to left,#490d20,#a04655,#490d20);
+    color: var(--white);  
 }
 
 .cardGameBrazil{
@@ -18,9 +34,7 @@
     background-image: linear-gradient(to right,#10892E,#19328E, #EED901);
     font-weight: bold;
 }
-.cardGame:hover, .cardGameBrazil:hover{
-    cursor: pointer;
-}
+
 .date{
     font-weight: 400;
     font-size: 12px;
@@ -32,4 +46,14 @@
     .cardGame, .cardGameBrazil{
         width: 90%;
     }
+
+    .cardGame {
+        font-size: 12px;
+    }
+
+    .dataJogo{
+        font-size: 10px;
+
+    }
+
  }
