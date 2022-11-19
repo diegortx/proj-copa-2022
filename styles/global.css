@@ -3,7 +3,10 @@
   --dark-light:#74757492;
   --white : white;
   --primary: #490d20;
-
+  --bg-color: rgb(200, 201, 194);
+  --br-blue: #1651b8;
+  --br-green: #16b83e;
+  --br-yellow: #FFE857  
 }
 
 html,
@@ -15,7 +18,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   background-color: var(--dark);
-  background-image: linear-gradient(to bottom,var(--dark),var(--primary));
+  background-image: linear-gradient(to bottom,var(--br-green),var(--br-yellow),var(--br-blue));
   color: var(--white);
   height: auto;
 }
@@ -35,5 +38,15 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+footer{
+  font-size: 12px;
+}
+
+footer a{
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
 }
 

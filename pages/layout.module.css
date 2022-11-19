@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 .hbody{
     height: 88vh;
-    padding-top: 20%;
+    padding-top: 10%;
 }
 .line{
     border-right: 2px solid rgb(255, 255, 255, 0.75);

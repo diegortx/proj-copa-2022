@@ -27,15 +27,23 @@ function convertDate(date){
     data.setMonth(data.getMonth() );
 
     data = 
-        data.getDate()+'/'
+       data.getDate()+'/'
         +(data.getMonth() + 1)+'/'
-        +data.getFullYear()+' '
-        +data.getHours()+':'
-        +(data.getMinutes() == 0 ? '00' : data.getMinutes())+':'
-        +(data.getSeconds() == 0 ? '00' : data.getSeconds());
+        +data.getFullYear();
 
     return data;
 
+}
+
+function convertHour(hour){
+    let data = new Date(hour);
+    data.setHours(data.getHours() -6);
+
+    data =  data.getHours()+':'
+    +(data.getMinutes() == 0 ? '00' : data.getMinutes())+':'
+    +(data.getSeconds() == 0 ? '00' : data.getSeconds())   
+    
+    return data;
 }
 
 function orderPorDia(data) {
@@ -77,8 +85,17 @@ function Games({data}){
             return (
             <div className={`${styles.cardGame}`} key={index}>   
             <div className={`${styles.cardTop}`}>
-                {index}º Dia
-                <hr/>
+                <div className='col'>
+                    <div>
+                        {index}º Dia
+                    </div>
+                    <div className={`${styles.dateGame}`}>
+                        {convertDate(dia[0].local_date)}
+                    </div>
+                </div>
+                {
+                    index != 0 ? '':<hr/>                   
+                }
             </div>
                 {
                     dia.map((jogo, index) => {
@@ -99,7 +116,7 @@ function Games({data}){
                                             {jogo.home_score} x {jogo.away_score}
                                         </div>
                                         <div className={`${styles.dataJogo}`}>
-                                            {convertDate(jogo.local_date)} 
+                                            {convertHour(jogo.local_date)} 
                                         </div>
                                     </div>
                                 </div>

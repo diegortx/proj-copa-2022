@@ -13,22 +13,19 @@
     border-radius: 10px;
     padding: 10px;
     border: solid 1px;
-    border-color: var(--primary);
+    border-color: var(--white);
+    color: var(--white);
 
 }
-.menu a:hover{
-    color: white;
-}
-
 .menuSelecionado a{
     font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
     padding: 10px;
     border: solid 1px;
-    border-color: var(--primary);
-    color: var(--white);
-    background-color: var(--primary);
+    border-color: var(--white);
+    color: var(--dark);
+    background-color: var(--white);
 }
 
 @media (max-width: 576px) { 

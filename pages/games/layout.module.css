@@ -4,7 +4,7 @@
     height: auto;
     border-radius: 10px;
     margin: 20px;
-    box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
+    box-shadow: 0px 3px 3px 1px var(--primary);
     background-color: rgb(200, 201, 194);
     font-weight: bold;
     color: var(--dark);  
@@ -21,8 +21,9 @@
 .cardTop{
     border-radius: 10px;
     border: none;
-    background-image: linear-gradient(to left,#490d20,#a04655,#490d20);
+    background-image: linear-gradient(to left,var(--br-green),var(--br-yellow),var(--br-blue));
     color: var(--white);  
+    margin-bottom: 20px;
 }
 
 .cardGameBrazil{
@@ -41,7 +42,10 @@
     padding: 10px;
     font-style: italic;
 }
-
+.dateGame{
+    font-size: 12px;
+    font-style: italic;
+}
 @media (max-width: 576px) { 
     .cardGame, .cardGameBrazil{
         width: 90%;

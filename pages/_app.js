@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Copa do Mundo 2022 🏆⚽</title>
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/197/197386.png"/>
       </Head>
 
       <Script
@@ -19,6 +20,10 @@ function MyApp({ Component, pageProps }) {
       <div className="container">
         <Component {...pageProps} />
       </div>
+
+      <footer className="text-center">
+        Devlopment for <a href="https://github.com/diegortx" target="_blank">Diego H Nogueira</a> - using <a target="_blank" href="https://nextjs.org/">NextJS</a> 2022
+      </footer>
     </>
   );
 }
