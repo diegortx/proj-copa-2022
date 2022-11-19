@@ -18,7 +18,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   background-color: var(--dark);
-  background-image: linear-gradient(to bottom,var(--br-green),var(--br-yellow),var(--br-blue));
+  background-image: linear-gradient(to bottom,var(--br-green),var(--br-blue),var(--br-yellow));
   color: var(--white);
   height: auto;
 }
