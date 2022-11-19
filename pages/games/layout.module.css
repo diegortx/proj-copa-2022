@@ -21,7 +21,7 @@
 .cardTop{
     border-radius: 10px;
     border: none;
-    background-image: linear-gradient(to left,var(--br-green),var(--br-yellow),var(--br-blue));
+    background-image: linear-gradient(to left,var(--br-green),var(--br-blue),var(--br-yellow));
     color: var(--white);  
     margin-bottom: 20px;
 }
