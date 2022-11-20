@@ -67,6 +67,7 @@ export async function getStaticProps() {
     const data = await Classificacao();
     return {
         props: { data },
+        revalidate: 30,
     }
 }
   
