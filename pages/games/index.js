@@ -61,18 +61,29 @@ function orderPorDia(data) {
     return dias;
 }
 
+function statusGame(status){
+    switch(status){
+        case 'finished':
+            return 'Encerrado';
+        case 'notstarted':
+            return 'Não Iniciado';
+        case 'h1':
+            return 'Primeiro Tempo';
+        case 'hf':
+            return 'Intervalo';
+        case 'h2':
+            return 'Segundo Tempo';
+    }
+
+}
+
 
 
 function Games({data}){
     const games = data.data;
-    games.sort(compare);
-
-    
+    games.sort(compare);    
 
     const jogosPorDia = orderPorDia(games);
-
-
-
 
     return (      
         <>
@@ -100,28 +111,36 @@ function Games({data}){
                 {
                     dia.map((jogo, index) => {
                         return (
-                            <div className='row w-100 ' key={index}>
+                            <div className='row w-100' key={index}>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
                                         <img src={jogo.home_flag} width='50px' height='30px'/>
                                     </div>
-                                    <div className='col w-25 '>
-                                        {jogo.home_team_en}    
+                                    <div className='col w-25'>
+                                        {jogo.home_team_en}
+                                        {
+                                                (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?(''):(<span  data-bs-toggle="tooltip" $with title={`${jogo.home_scorers}`}>⚽</span>)                                            }    
                                     </div>
 
                                 </div>
                                 <div className='col row w-10 text-center'>
                                     <div className='col'> 
-                                        <div className=''>
+                                        <div>
+                                            
                                             {jogo.home_score} x {jogo.away_score}
+                                            
+                                            
                                         </div>
+                                
                                         <div className={`${styles.dataJogo}`}>
-                                            {convertHour(jogo.local_date)} 
+                                            {convertHour(jogo.local_date)} -         <strong>{statusGame(jogo.time_elapsed)}</strong>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
+                                    {
+                                                (jogo.away_scorers == "" || jogo.away_scorers == "null") ?(''):(<span type="span" data-bs-toggle="tooltip" $with title={`${jogo.away_scorers}`}>⚽</span>)                                  }
                                         {jogo.away_team_en}
                                     </div>
                                     <div className='col w-25 '>

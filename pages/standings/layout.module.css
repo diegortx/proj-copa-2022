@@ -10,6 +10,10 @@
     border: none;
 }
 
+.thControl{
+    color: rgba(0, 0, 2, 0.2)
+}
+
 .tableBody thead{
     background-image: linear-gradient(to right,var(--br-green),var(--br-blue),var(--br-yellow));
     color: var(--white);    

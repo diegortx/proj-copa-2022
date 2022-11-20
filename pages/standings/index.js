@@ -39,12 +39,12 @@ function Standings({data}){
                                     <th>{index+1}</th>
                                     <th><img src={team.flag} className={`${styles.image}`}></img></th>
                                     <th>{team.name_en}</th>
-                                    <th>{team.pts}</th>
-                                    <th>{team.mp}</th>
-                                    <th>{team.w}</th>
-                                    <th>{team.l}</th>
-                                    <th>{team.gf}</th>
-                                    <th>{team.ga}</th>
+                                    <th className={`${team.pts == 0 ? styles.thControl : ''}`}>{team.pts}</th>
+                                    <th className={`${team.mp == 0 ? styles.thControl : ''}`}>{team.mp}</th>
+                                    <th className={`${team.w == 0 ? styles.thControl : ''}`}>{team.w}</th>
+                                    <th className={`${team.l == 0 ? styles.thControl : ''}`}>{team.l}</th>
+                                    <th className={`${team.gf == 0 ? styles.thControl : ''}`}>{team.gf}</th>
+                                    <th className={`${team.ga == 0 ? styles.thControl : ''}`}>{team.ga}</th>
                                 </tr>
                             </tbody>
                        
