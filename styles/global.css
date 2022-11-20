@@ -50,3 +50,8 @@ footer a{
   text-decoration: none;
 }
 
+#nprogress{
+  --primary-color: #ff0000; 
+  pointer-events: none;
+}
+
