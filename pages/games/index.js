@@ -8,7 +8,7 @@ export async function getStaticProps() {
     return {
         props: { data },
         //Tempo para rodar a consulta statica em segundos
-        revalidate: 30,
+        revalidate: 10,
     }
 }
 
