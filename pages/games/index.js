@@ -6,9 +6,11 @@ import { Jogos } from '../../src/utils/config/cfg';
 export async function getStaticProps() {
     const data = await Jogos();
     return {
-        props: { data },
+        props: { 
+            data 
+        },
         //Tempo para rodar a consulta statica em segundos
-        revalidate: 10,
+        revalidate: 20,
     }
 }
 
