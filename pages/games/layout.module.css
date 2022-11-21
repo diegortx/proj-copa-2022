@@ -5,7 +5,7 @@
     border-radius: 10px;
     margin: 20px;
     box-shadow: 0px 3px 3px 1px var(--primary);
-    background-color: rgb(200, 201, 194);
+    background-color: var(--bg-color);
     font-weight: bold;
     color: var(--dark);  
 }
@@ -34,6 +34,7 @@
     box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
     background-image: linear-gradient(to right,#10892E,#19328E, #EED901);
     font-weight: bold;
+    color: white;
 }
 
 .date{
@@ -45,6 +46,23 @@
 .dateGame{
     font-size: 12px;
     font-style: italic;
+}
+
+.finished{
+    color: var(--br-blue);
+}
+.notstarted{
+    color: var(--primary);
+}
+.h1hfh2{
+    color: var(--br-green);
+}
+
+.nomeJogadoresGols{
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    
 }
 @media (max-width: 576px) { 
     .cardGame, .cardGameBrazil{
@@ -58,6 +76,11 @@
     .dataJogo{
         font-size: 10px;
 
+    }
+
+    .nomeJogadoresGols{
+        font-size: 0;
+        
     }
 
  }

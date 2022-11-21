@@ -16,7 +16,7 @@ function Standings({data}){
                <div className='col mt-3' key={index}>
                
                 
-                <table key={index} class={`table table-hover text-center ${styles.tableBody}`}>
+                <table key={index} className={`table table-hover text-center ${styles.tableBody}`}>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -62,9 +62,22 @@ function Standings({data}){
 
 }
 
+function compare(a,b) {
+    if (a.pts < b.pts)
+       return 1;
+    if (a.pts > b.pts)
+      return -1;
+    return 0;
+  }
+
 export async function getStaticProps() {
  
     const data = await Classificacao();
+
+    data.data.forEach(time => {
+        time.teams.sort(compare);      
+    });
+
     return {
         props: { data },
         revalidate: 30,

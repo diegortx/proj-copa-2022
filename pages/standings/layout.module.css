@@ -5,7 +5,7 @@
     border-radius: 10px;
     margin: 20px;
     box-shadow: 1px 6px 2px 1px rgba(0, 0, 2, 0.2);
-    background-color: rgb(200, 201, 194);
+    background-color: var(--bg-color);
     color: var(--dark);
     border: none;
 }

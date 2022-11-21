@@ -113,15 +113,23 @@ function Games({data}){
                 {
                     dia.map((jogo, index) => {
                         return (
-                            <div className='row w-100' key={index}>
+                            <div className={`row w-100`} key={index}>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
                                         <img src={jogo.home_flag} width='50px' height='30px'/>
                                     </div>
                                     <div className='col w-25'>
+                                        <div>
                                         {jogo.home_team_en}
+                                        </div>
+                                        <div>
                                         {
-                                                (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?(''):(<span  data-bs-toggle="tooltip" $with title={`${jogo.home_scorers}`}>⚽</span>)                                            }    
+                                            (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?
+                                                ('')
+                                                    :
+                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.home_scorers[0].split(',')}</span>)                                           }    
+
+                                        </div>
                                     </div>
 
                                 </div>
@@ -129,21 +137,29 @@ function Games({data}){
                                     <div className='col'> 
                                         <div>
                                             
-                                            {jogo.home_score} x {jogo.away_score}
+                                        {jogo.home_score > jogo.away_score ? '⚽' : ''} {jogo.home_score} x {jogo.away_score}{jogo.home_score < jogo.away_score ? '⚽' : ''}
                                             
                                             
                                         </div>
                                 
                                         <div className={`${styles.dataJogo}`}>
-                                            {convertHour(jogo.local_date)} -         <strong>{statusGame(jogo.time_elapsed)}</strong>
+                                            {convertHour(jogo.local_date)} -         <strong className={`${jogo.time_elapsed == 'finished' ? styles.finished : '' || jogo.time_elapsed == 'notstarted' ? styles.notstarted : '' || (jogo.time_elapsed != 'notstarted' && jogo.time_elapsed != 'finished') ? styles.h1hfh2 : ''  }`}>{statusGame(jogo.time_elapsed)}</strong>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
-                                    {
-                                                (jogo.away_scorers == "" || jogo.away_scorers == "null") ?(''):(<span type="span" data-bs-toggle="tooltip" $with title={`${jogo.away_scorers}`}>⚽</span>)                                  }
+                                    <div>
                                         {jogo.away_team_en}
+                                        </div>
+                                        <div>
+                                        {
+                                            (jogo.away_scorers == "" || jogo.away_scorers == "null" ) ?
+                                                ('')
+                                                    :
+                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.away_scorers[0].split(',')}</span>)                                           }    
+
+                                        </div>
                                     </div>
                                     <div className='col w-25 '>
                                         <img src={jogo.away_flag} width='50px' height='30px'/>
