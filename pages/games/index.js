@@ -127,7 +127,7 @@ function Games({data}){
                                             (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?
                                                 ('')
                                                     :
-                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.home_scorers[0].split(',')}</span>)                                           }    
+                                                (<p className={`${styles.nomeJogadoresGols}`}>{jogo.home_scorers[0].split(',')}</p>)                                           }    
 
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@ function Games({data}){
                                             (jogo.away_scorers == "" || jogo.away_scorers == "null" ) ?
                                                 ('')
                                                     :
-                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.away_scorers[0].split(',')}</span>)                                           }    
+                                                (<p className={`${styles.nomeJogadoresGols}`}>{jogo.away_scorers[0].split(',')}</p>)                                           }    
 
                                         </div>
                                     </div>
