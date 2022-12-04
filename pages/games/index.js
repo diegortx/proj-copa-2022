@@ -123,11 +123,16 @@ function Games({data}){
                             <div className={`row w-100`} key={index}>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
-                                        <img src={jogo.home_flag} width='50px' height='30px'/>
+                                        {
+                                            jogo.home_flag == '' ? ''
+                                            :
+                                            <img src={jogo.home_flag} width='50px' height='30px'/>
+                                        }                                       
+                                        
                                     </div>
                                     <div className='col w-25'>
                                         <div>
-                                        {jogo.home_team_en}
+                                        {jogo.home_team_en == '--' ? 'Não selecionado': jogo.home_team_en}
                                         </div>
                                         <div>
                                         {
@@ -166,7 +171,7 @@ function Games({data}){
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
                                     <div>
-                                        {jogo.away_team_en}
+                                        {jogo.away_team_en == '--' ? 'Não selecionado': jogo.away_team_en}
                                         </div>
                                         <div>
                                         {
@@ -187,7 +192,12 @@ function Games({data}){
                                         </div>
                                     </div>
                                     <div className='col w-25 '>
-                                        <img src={jogo.away_flag} width='50px' height='30px'/>
+                                        {
+                                            jogo.away_flag == '' ? ''
+                                            :
+                                            <img src={jogo.away_flag} width='50px' height='30px'/>
+                                        } 
+                                       
                                     </div>
                                 </div> 
                                 <hr/>
