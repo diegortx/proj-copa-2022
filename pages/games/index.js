@@ -79,13 +79,20 @@ function statusGame(status){
 
 }
 
+function jogadoresGols(jogadores){
+
+    const jogador = jogadores.split(',');
+
+    return jogador;
+}
+
 
 
 function Games({data}){
-    const games = data.data;
+    let games = data.data;
     games.sort(compare);    
 
-    const jogosPorDia = orderPorDia(games);
+    let jogosPorDia = orderPorDia(games);
 
     return (      
         <>
@@ -116,18 +123,32 @@ function Games({data}){
                             <div className={`row w-100`} key={index}>
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
-                                        <img src={jogo.home_flag} width='50px' height='30px'/>
+                                        {
+                                            jogo.home_flag == '' ? ''
+                                            :
+                                            <img src={jogo.home_flag} width='50px' height='30px'/>
+                                        }                                       
+                                        
                                     </div>
                                     <div className='col w-25'>
                                         <div>
-                                        {jogo.home_team_en}
+                                        {jogo.home_team_en == '--' ? 'Não selecionado': jogo.home_team_en}
                                         </div>
                                         <div>
                                         {
                                             (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?
                                                 ('')
                                                     :
-                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.home_scorers[0].split(',')}</span>)                                           }    
+                                                (
+                                                    jogadoresGols(jogo.home_scorers[0]).map((jogador) =>{
+                                                        return ( 
+                                                            <p className={`${styles.nomeJogadoresGols}`}>
+                                                            ⚽ {jogador}
+                                                            </p>
+                                                        )
+                                                    })
+                                                )                                        
+                                        }    
 
                                         </div>
                                     </div>
@@ -150,19 +171,33 @@ function Games({data}){
                                 <div className='col row w-40 '>
                                     <div className='col w-25'>
                                     <div>
-                                        {jogo.away_team_en}
+                                        {jogo.away_team_en == '--' ? 'Não selecionado': jogo.away_team_en}
                                         </div>
                                         <div>
                                         {
                                             (jogo.away_scorers == "" || jogo.away_scorers == "null" ) ?
                                                 ('')
                                                     :
-                                                (<span className={`${styles.nomeJogadoresGols}`}>{jogo.away_scorers[0].split(',')}</span>)                                           }    
+                                                (
+                                                    jogadoresGols(jogo.away_scorers[0]).map((jogador) =>{
+                                                        return ( 
+                                                            <p className={`${styles.nomeJogadoresGols}`}>
+                                                            ⚽ {jogador}
+                                                            </p>
+                                                        )
+                                                    })
+                                                )                                        
+                                        }      
 
                                         </div>
                                     </div>
                                     <div className='col w-25 '>
-                                        <img src={jogo.away_flag} width='50px' height='30px'/>
+                                        {
+                                            jogo.away_flag == '' ? ''
+                                            :
+                                            <img src={jogo.away_flag} width='50px' height='30px'/>
+                                        } 
+                                       
                                     </div>
                                 </div> 
                                 <hr/>
