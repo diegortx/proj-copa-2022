@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
 
     //Selecionando o perfil da selecao por id
     const data = await Selecoes(context.params.id);
-    
+   
     return {
         props: { 
             data,
@@ -52,7 +52,7 @@ function Teams({data,players}){
     //     );
     // }
 
-    const teams = data.data;
+    const teams = data;
     return (      
         <>
         <MenuTopo selected="selecoes"/>

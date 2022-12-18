@@ -1,98 +1,34 @@
 
-async function tokenGenetarion(){
-    const res = await fetch(
-        `http://api.cup2022.ir/api/v1/user/login`,
-        {
-            method: 'POST',
-            headers: { 'Content-Type' : 'application/json'},
-            body:  JSON.stringify({
-                "email": "dhnogueira1@hotmail.com",
-                "password": "diego123@"
-            })
-        }
-    );
-    const data = await res.json();  
-    return data.data.token;
-}
+import games from './games';
+import standings from './standings';
+import teams from './teams';
+
 
 
 export async function Jogos(id){
-    const token = await tokenGenetarion();
     if(!id){
-        const res = await fetch(
-            `http://api.cup2022.ir/api/v1/match`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            }
-        );
-        const data = await res.json();   
-        return data;
-    }else{        
-        const res = await fetch(
-            `http://api.cup2022.ir/api/v1/match/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            }
-            
-        );
-        const data = await res.json();
-        return data;
+        return games();
+    }else{       
     }    
     
 }
 
 export async function Classificacao(){
-    const token = await tokenGenetarion();
-
-        const res = await fetch(
-            `http://api.cup2022.ir/api/v1/standings`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            }
-        );
-        const data = await res.json();
-        return data;
-
-
+    return standings();
 }
 
 export async function Selecoes(id){
 
-    const token = await tokenGenetarion();   
-
     if(id){
-        const res = await fetch(
-            `http://api.cup2022.ir/api/v1/team/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
+        var team = teams();
+        team = team.data.filter((team)=>{
+            if(team.id == id){
+                return team
             }
-        );
-        const data = await res.json();
-        return data;
-    }else{
-        const res = await fetch(
-            `http://api.cup2022.ir/api/v1/team`,
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-            }
-        );
-        const data = await res.json();
-        return data;
+        });
+        return team;
+    }else{       
+        return teams();
     }
 
   
