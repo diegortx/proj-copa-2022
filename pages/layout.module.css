@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 .hbody{
     height: 84vh;
-    padding-top: 12%;
+    padding-top: 1rem;
 }
 .line{
     border-right: 2px solid rgb(255, 255, 255, 0.75);
    color: var(--withe); 
    font-family: 'Special Elite', cursive;
-   font-size: 2em;
+   font-size: 2rem;
    margin: 0 auto;
    white-space: nowrap;
    overflow: hidden;
@@ -18,7 +18,40 @@
     border-right: 2px solid rgb(255, 255, 255, 0.75);
    color: var(--withe); 
    font-family: 'Special Elite', cursive;
-   font-size: 2em;
+   font-size: 2rem;
+   margin: 0 auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+}
+
+.line3{
+    border-right: 2px solid rgb(255, 255, 255, 0.75);
+   color: var(--withe); 
+   font-family: 'Special Elite', cursive;
+   font-size: 2rem;
+   margin: 0 auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+}
+
+.line4{
+    border-right: 2px solid rgb(255, 255, 255, 0.75);
+   color: var(--withe); 
+   font-family: 'Special Elite', cursive;
+   font-size: 2rem;
+   margin: 0 auto;
+   white-space: nowrap;
+   overflow: hidden;
+   text-align: center;
+}
+
+.line5{
+    border-right: 2px solid rgb(255, 255, 255, 0.75);
+   color: var(--withe); 
+   font-family: 'Special Elite', cursive;
+   font-size: 2rem;
    margin: 0 auto;
    white-space: nowrap;
    overflow: hidden;
@@ -26,19 +59,23 @@
 }
 
 .typingAnimation {
-    animation: blinkCursos 500ms steps(40) infinite normal, typing 6s steps(40) infinite normal both;
+    animation: blinkCursos 500ms steps(40) infinite normal, typing 6s steps(40) normal both;
 }
 .typingAnimation2 {
     animation: blinkCursos 500ms steps(40) infinite normal, typing2 4s steps(40) 6s normal both;
 }
 
-@keyframes typing2{
-    from{
-        width: 0;
-    }
-    to{
-        width: 21em;
-    }
+.typingAnimation3 {
+    animation: blinkCursos 500ms steps(40) infinite normal, typing3 3s steps(40) 10s normal both;
+}
+
+.typingAnimation4 {
+    animation: blinkCursos 500ms steps(40) infinite normal, typing4 3s steps(40) 13s normal both;
+}
+
+
+.typingAnimation5 {
+    animation: blinkCursos 500ms steps(40) infinite normal, typing5 3s steps(40) 16s normal both;
 }
 
 @keyframes typing{
@@ -49,6 +86,47 @@
         width: 18em;
     }
 }
+
+
+@keyframes typing2{
+    from{
+        width: 0;
+    }
+    to{
+        width: 21em;
+    }
+}
+
+@keyframes typing3{
+    from{
+        width: 0;
+    }
+    to{
+        width: 13em;
+    }
+}
+
+@keyframes typing4{
+    from{
+        width: 0;
+    }
+    to{
+        width: 9em;
+    }
+}
+
+@keyframes typing5{
+    from{
+        width: 0;
+    }
+    to{
+        width: 11em;
+    }
+}
+
+
+
+
 
 @keyframes blinkCursos{
     from {
@@ -68,6 +146,17 @@
     }
     
     .line2{
-       font-size: 18px;      
+       font-size: 16px;      
     }
+
+    .line3{
+        font-size: 18px;      
+     }
+
+     .line4{
+        font-size: 38px;      
+     }
+     .line5{
+        font-size: 28px;      
+     }
 }

@@ -1,4 +1,6 @@
-
+.order:hover{
+    cursor: pointer;
+}
 .cardGame{
     width: 100%;
     height: auto;

@@ -1,6 +1,7 @@
 import styles from './layout.module.css'
 import MenuTopo from '../../src/components/MenuTopo/MenuTopo';
 import { Jogos } from '../../src/utils/config/cfg';
+import { useState } from 'react';
 
 
 export async function getStaticProps() {
@@ -89,6 +90,9 @@ function jogadoresGols(jogadores){
 
 
 function Games({data}){
+
+    const [order, setOrder] = useState(true);
+
     let games = data.data;
     games.sort(compare);    
 
@@ -97,17 +101,139 @@ function Games({data}){
     return (      
         <>
         <MenuTopo selected="jogos"/>
-        <h3 className='text-center'>Jogos 🏆⚽</h3>
-        <div className='row text-center'>
+        <div className='d-flex justify-content-evenly'>
+            <div>
+                <h3 className=''>Jogos 🏆⚽</h3>
+            </div>
+            <div>
+                {
+                    order ? 
+                        <div className={`${styles.order}`}  onClick={() => setOrder(false)}>🔺</div>
+                    :    
+                        <div className={`${styles.order}`}  onClick={() => setOrder(true)}>🔻</div>
+                    
+                }    
+            </div>
+        </div>
+
+        <div className='row text-center'>          
         
         {
+            order ? 
             jogosPorDia.map((dia, index) => {
             return (
-            <div className={`${styles.cardGame}`} key={index}>   
+            <div className={`${styles.cardGame}`} key={index} >   
             <div className={`${styles.cardTop}`}>
                 <div className='col'>
                     <div>
-                        {index}º Dia
+                        {index}º Dia {index == 23 ? '- Final 🏆':''} {index == 22 ? '- Semi Final':''}
+                    </div>
+                    <div className={`${styles.dateGame}`}>
+                        {convertDate(dia[0].local_date)}
+                    </div>
+                </div>
+                {
+                    index != 0 ? '':<hr/>                   
+                }
+            </div>
+                {
+                    dia.map((jogo, index) => {
+                        return (
+                            <div className={`row w-100`} key={index}>
+                                <div className='col row w-40 '>
+                                    <div className='col w-25'>
+                                        {
+                                            jogo.home_flag == '' ? ''
+                                            :
+                                            <img src={jogo.home_flag} width='50px' height='30px'/>
+                                        }                                       
+                                        
+                                    </div>
+                                    <div className='col w-25'>
+                                        <div>
+                                        {jogo.home_team_en == '--' ? 'Não selecionado': jogo.home_team_en}
+                                        </div>
+                                        <div>
+                                        {
+                                            (jogo.home_scorers == "" || jogo.home_scorers == "null" ) ?
+                                                ('')
+                                                    :
+                                                (
+                                                    jogadoresGols(jogo.home_scorers[0]).map((jogador) =>{
+                                                        return ( 
+                                                            <p className={`${styles.nomeJogadoresGols}`}>
+                                                            ⚽ {jogador}
+                                                            </p>
+                                                        )
+                                                    })
+                                                )                                        
+                                        }    
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div className='col row w-10 text-center'>
+                                    <div className='col'> 
+                                        <div>
+                                            
+                                        {jogo.home_score > jogo.away_score ? '⚽' : ''} {jogo.home_score} x {jogo.away_score}{jogo.home_score < jogo.away_score ? '⚽' : ''}
+                                            
+                                            
+                                        </div>
+                                
+                                        <div className={`${styles.dataJogo}`}>
+                                            {convertHour(jogo.local_date)} -         <strong className={`${jogo.time_elapsed == 'finished' ? styles.finished : '' || jogo.time_elapsed == 'notstarted' ? styles.notstarted : '' || (jogo.time_elapsed != 'notstarted' && jogo.time_elapsed != 'finished') ? styles.h1hfh2 : ''  }`}>{statusGame(jogo.time_elapsed)}</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='col row w-40 '>
+                                    <div className='col w-25'>
+                                    <div>
+                                        {jogo.away_team_en == '--' ? 'Não selecionado': jogo.away_team_en}
+                                        </div>
+                                        <div>
+                                        {
+                                            (jogo.away_scorers == "" || jogo.away_scorers == "null" ) ?
+                                                ('')
+                                                    :
+                                                (
+                                                    jogadoresGols(jogo.away_scorers[0]).map((jogador) =>{
+                                                        return ( 
+                                                            <p className={`${styles.nomeJogadoresGols}`}>
+                                                            ⚽ {jogador}
+                                                            </p>
+                                                        )
+                                                    })
+                                                )                                        
+                                        }      
+
+                                        </div>
+                                    </div>
+                                    <div className='col w-25 '>
+                                        {
+                                            jogo.away_flag == '' ? ''
+                                            :
+                                            <img src={jogo.away_flag} width='50px' height='30px'/>
+                                        } 
+                                       
+                                    </div>
+                                </div> 
+                                <hr/>
+                            </div>
+                        )
+                    })
+                }
+            </div> 
+            );            
+
+        }).reverse() :  jogosPorDia.map((dia, index) => {
+            return (
+            <div className={`${styles.cardGame}`} key={index} >   
+            <div className={`${styles.cardTop}`}>
+                <div className='col'>
+                    <div>
+                        {index}º Dia {index == 23 ? '- Final':''} {index == 22 ? '- Semi Final':''}
                     </div>
                     <div className={`${styles.dateGame}`}>
                         {convertDate(dia[0].local_date)}
